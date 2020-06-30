@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "./../header/component";
 import { Newsletter } from "./../newsletter/component";
+import { Share } from "./../share/component";
 import styles from "./styles";
 
 export class Artwork extends Component {
@@ -45,6 +46,7 @@ export class Artwork extends Component {
                         <p className={styles.Description}>{this.state.data.description}</p>
                         { prints }
                         <h1 className={styles.Subtitle}>You may also like...</h1>
+                        <Share />
                         <div className={styles.Related}>
                             { this.state.data.related.map(image => {
                                 return (
