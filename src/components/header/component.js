@@ -3,6 +3,18 @@ import { Link } from "react-router-dom";
 import styles from "./styles";
 
 export const Header = props => {
+    const nav = props.nav ? (
+                <nav className={styles.Nav}>
+                    { props.nav.map(nav => {
+                        if (nav.internal) {
+                            return <Link to={nav.url} key={nav.name}><p>{nav.name}</p></Link>
+                        } else {
+                            return <a href={nav.url} target="_blank" key={nav.name}><p>{nav.name}</p></a>
+                        }
+                    })}
+                </nav>
+            ) : null;
+
     return (
         <Fragment>
             <header className={styles.Header}>
@@ -21,15 +33,7 @@ export const Header = props => {
                     </div>
                 </div>
             </header>
-            <nav className={styles.Nav}>
-                { props.nav.map(nav => {
-                    if (nav.internal) {
-                        return <Link to={nav.url} key={nav.name}><p>{nav.name}</p></Link>
-                    } else {
-                        return <a href={nav.url} target="_blank" key={nav.name}><p>{nav.name}</p></a>
-                    }
-                })}
-            </nav>
+            { nav }
         </Fragment>
     )
 }

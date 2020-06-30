@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { Header } from "./components/header/component";
 import { Gallery } from "./components/gallery/component";
+import { Newsletter } from "./components/newsletter/component";
+import { Contact } from "./components/contact/component";
+import { Artwork } from "./components/artwork/component";
 import "./styles";
 
 class App extends Component {
@@ -48,11 +51,23 @@ class App extends Component {
                     </Route>
                 </Switch>
                 <Switch>
-                    <Route exact path="/">
+                    <Route path="/art/:slug">
+                        <Artwork socials={this.state.social} />
+                    </Route>
+                    <Route path="/contact">
+                        <Contact />
+                    </Route>
+                    <Route path="/">
                         <Gallery />
                     </Route>
                 </Switch>
-                <h1>Welcome to Art By Mente</h1>
+                <Switch>
+                    <Route path={["/", "/contact"]}>
+                        <footer className="Footer">
+                            <Newsletter />
+                        </footer>
+                    </Route>
+                </Switch>
             </Fragment>
         )
     }
