@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import styles from "./styles";
 
 class App extends Component {
