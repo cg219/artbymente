@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styles from "./styles";
 
 export const Header = props => {
@@ -7,7 +7,7 @@ export const Header = props => {
                 <nav className={styles.Nav}>
                     { props.nav.map(nav => {
                         if (nav.internal) {
-                            return <Link to={nav.url} key={nav.name}><p>{nav.name}</p></Link>
+                            return <NavLink activeClassName={styles.ActiveLink} exact to={nav.url} key={nav.name}><p>{nav.name}</p></NavLink>
                         } else {
                             return <a href={nav.url} target="_blank" key={nav.name}><p>{nav.name}</p></a>
                         }
@@ -25,9 +25,9 @@ export const Header = props => {
                     <div className={styles.Social}>
                         { props.socials.map(social => {
                             if (social.internal) {
-                                return <div className={styles.SocialIcon} key={social.name}><Link to={social.url}>{social.name}</Link></div>
+                                return <div className={`${styles.SocialIcon} ${styles[social.name]}`} key={social.name}><Link to={social.url}></Link></div>
                             } else {
-                                return <div className={styles.SocialIcon} key={social.name}><a href={social.url} target="_blank" alt={social.name}>{social.name}</a></div>
+                                return <div className={`${styles.SocialIcon} ${styles[social.name]}`} key={social.name}><a href={social.url} target="_blank" alt={social.name}></a></div>
                             }
                         })}
                     </div>

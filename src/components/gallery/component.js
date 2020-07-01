@@ -25,11 +25,10 @@ export class Gallery extends Component {
         return (
             <div className={styles.Gallery}>
                 { this.state.items.map(item => {
+                    const classes = item.nsfw ? [styles.GalleryItem, styles.NSFW].join(' ') : styles.GalleryItem;
                     return (
-                        <div className={styles.GalleryItem} key={item.slug}>
-                            <figure className={styles.Image}>
-                                <img src={item.image.url} alt={item.image.filename} />
-                            </figure>
+                        <div className={classes} key={item.slug}>
+                            <div className={styles.Image} style={{backgroundImage: `url(${item.image.url})`}}></div>
                             <div className={styles.Info}>
                                 <p>{item.title}</p>
                                 <span>{item.mediums}</span>
