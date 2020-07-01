@@ -1,0 +1,213 @@
+@import "../../functions";
+@import "../../vars";
+
+.Header {
+    width: 100%;
+    padding: to-rem(50) 0 to-rem(25);
+    background-image: url('./../../assets/bg.png');
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
+.Name {
+    font-family: 'Dosis', sans-serif;
+    font-size: to-rem(40);
+    font-weight: 600;
+    margin-top: to-rem(15);
+    letter-spacing: to-rem(1);
+    text-align: center;
+    color: $white;
+    line-height: 1;
+}
+
+.Title {
+    font-family: 'Heebo', sans-serif;
+    text-align: center;
+    color: $white;
+    margin: 0 0 to-rem(10);
+    font-weight: 300;
+    line-height: 1;
+    font-size: to-rem(16);
+
+    @media all and (max-width: 768px) {
+        font-size: to-rem(16);
+    }
+}
+
+.ProfileContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Horizontal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Profile {
+    width: to-rem(125);
+    height: to-rem(125);
+    margin: 0;
+    background-image: url('./../../assets/profile.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: $palegreen;
+    border-radius: 50%;
+}
+
+.Social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: to-rem(5);
+
+    @media all and (max-width: 768px) {
+        margin-top: to-rem(5);
+    }
+}
+
+.SocialIcon {
+    width: to-rem(20);
+    height: to-rem(20);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 to-rem(10);
+
+    a {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.Facebook {
+    background-image: url('./../../assets/facebook-social.png')
+}
+
+.Twitter {
+    background-image: url('./../../assets/twitter-social.png')
+}
+
+.Instagram {
+    background-image: url('./../../assets/instagram-social.png')
+}
+
+.Email {
+    background-image: url('./../../assets/email-social.png')
+}
+
+.Nav {
+    width: 100%;
+    height: to-rem(50);
+    display: flex;
+    flex-direction: row;
+    justify-content: flext-start;
+    align-items: center;
+    background-color: $darkgrey;
+    flex: 1 0 auto;
+
+    a {
+        height: 100%;
+        padding: 0 to-rem(30);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-decoration: none;
+        transition: .3s background-color ease-out;
+
+        &:hover {
+            p {
+                color: $green;
+            }
+        }
+
+        &.ActiveLink {
+            background-color: $midgrey;
+        }
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+        font-family: 'Dosis', sans-serif;
+        font-size: to-rem(14);
+        font-weight: 500;
+        color: $white;
+        text-transform: uppercase;
+        transition: .3s color ease-out;
+    }
+}
+
+.IsChild {
+    .ProfileContainer {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .Horizontal {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: to-rem(10);
+    }
+
+    .Vertical {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .Profile {
+        width: to-rem(50);
+        height: to-rem(50);
+        margin-right: to-rem(10);
+    }
+
+    .Name {
+        margin: 0 0 to-rem(5);
+        font-size: to-rem(20);
+        letter-spacing: to-rem(.7);
+        color: $green;
+    }
+
+    .Title {
+        margin: 0;
+        font-size: to-rem(12);
+        color: $white;
+    }
+
+    @media all and (max-width: 768px) {
+        .Social {
+            margin-left: to-rem(92.5);
+        }
+
+        .SocialIcon {
+            width: to-rem(20);
+            height: to-rem(20);
+            margin: 0 to-rem(7.5);
+        }
+
+        .Name {
+            margin: 0 0 to-rem(5);
+            font-size: to-rem(30);
+        }
+
+        .Title {
+            font-size: to-rem(16);
+        }
+
+        .Profile {
+            width: to-rem(80);
+            height: to-rem(80);
+            margin-right: to-rem(20);
+        }
+    }
+}
