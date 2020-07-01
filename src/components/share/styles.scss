@@ -1,21 +1,66 @@
 @import "../../functions";
+@import "../../vars";
 
 .Share {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: to-rem(15);
+}
 
+.Like, .Facebook, .Twitter, .Pinterest {
+    box-sizing: border-box;
+    width: 30%;
+    height: to-rem(25);
+    background-color: red;
+    border-radius: to-rem(4);
+    color: $white;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 400;
+    letter-spacing: to-rem(.8);
+    font-size: 10px;
+    line-height: to-rem(25);
+    background-size: to-rem(14) to-rem(14);
+    background-repeat: no-repeat;
+    background-position: to-rem(5) 50%;
+    padding-left: to-rem(14);
+    padding-top: to-rem(2);
+    cursor: pointer;
+    text-align: center;
+
+    @media all and (max-width: 768px) {
+        height: to-rem(40);
+        border-radius: to-rem(4);
+        letter-spacing: to-rem(.8);
+        font-size: 12px;
+        line-height: to-rem(40);
+        background-size: to-rem(20) to-rem(20);
+        padding-left: to-rem(25);
+    }
+
+    @media all and (max-width: 400px) {
+        font-size: 10px;
+    }
 }
 
 .Like {
-
+    background-color: $white;
+    color: $darkgrey;
+    background-image: url('./../../assets/heart.png');
 }
 
 .Facebook {
-
+    background-color: $fbcolor;
+    background-image: url('./../../assets/fb.png');
 }
 
 .Twitter {
-
+    background-color: $twcolor;
+    background-image: url('./../../assets/twitter.png');
 }
 
 .Pinterest {
-
+    background-color: $pincolor;
+    background-image: url('./../../assets/pin.png');
 }

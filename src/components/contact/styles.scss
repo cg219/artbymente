@@ -1,5 +1,32 @@
 @import "../../functions";
+@import "../../vars";
 
 .Contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: to-rem(20);
+    max-width: to-rem(960);
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    flex: 1 0 auto;
 
+    p {
+        font-family: 'Dosis', sans-serif;
+        font-size: to-rem(16);
+        font-weight: 400;
+        color: $white;
+        margin-bottom: to-rem(30);
+    }
+
+    a {
+        color: $green;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 }

@@ -51,9 +51,7 @@ class App extends Component {
                     </Route>
                 </Switch>
                 <Switch>
-                    <Route path="/art/:slug">
-                        <Artwork socials={this.state.social} />
-                    </Route>
+                    <Route path="/art/:slug" render={(routerProps) => <Artwork socials={this.state.social} {...routerProps} />} />
                     <Route path="/contact">
                         <Contact />
                     </Route>
@@ -62,7 +60,7 @@ class App extends Component {
                     </Route>
                 </Switch>
                 <Switch>
-                    <Route path={["/", "/contact"]}>
+                    <Route exact path={["/", "/contact"]}>
                         <footer className="Footer">
                             <Newsletter />
                         </footer>

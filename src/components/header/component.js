@@ -17,11 +17,15 @@ export const Header = props => {
 
     return (
         <Fragment>
-            <header className={styles.Header}>
+            <header className={props.isChild ? `${styles.Header} ${styles.IsChild}` : styles.Header}>
                 <div className={styles.ProfileContainer}>
-                    <div className={styles.Profile}></div>
-                    <p className={styles.Name}>Mente Gee</p>
-                    <p className={styles.Title}>Traditional and Digital Artist</p>
+                    <div className={styles.Horizontal}>
+                        <div className={styles.Profile}></div>
+                        <div className={styles.Vertical}>
+                            <p className={styles.Name}>Mente Gee</p>
+                            <p className={styles.Title}>Traditional and Digital Artist</p>
+                        </div>
+                    </div>
                     <div className={styles.Social}>
                         { props.socials.map(social => {
                             if (social.internal) {

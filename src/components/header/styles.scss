@@ -44,6 +44,13 @@
     align-items: center;
 }
 
+.Horizontal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .Profile {
     width: to-rem(125);
     height: to-rem(125);
@@ -136,5 +143,71 @@
         color: $white;
         text-transform: uppercase;
         transition: .3s color ease-out;
+    }
+}
+
+.IsChild {
+    .ProfileContainer {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .Horizontal {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: to-rem(10);
+    }
+
+    .Vertical {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .Profile {
+        width: to-rem(50);
+        height: to-rem(50);
+        margin-right: to-rem(10);
+    }
+
+    .Name {
+        margin: 0 0 to-rem(5);
+        font-size: to-rem(20);
+        letter-spacing: to-rem(.7);
+        color: $green;
+    }
+
+    .Title {
+        margin: 0;
+        font-size: to-rem(12);
+        color: $white;
+    }
+
+    @media all and (max-width: 768px) {
+        .Social {
+            margin-left: to-rem(92.5);
+        }
+
+        .SocialIcon {
+            width: to-rem(20);
+            height: to-rem(20);
+            margin: 0 to-rem(7.5);
+        }
+
+        .Name {
+            margin: 0 0 to-rem(5);
+            font-size: to-rem(30);
+        }
+
+        .Title {
+            font-size: to-rem(16);
+        }
+
+        .Profile {
+            width: to-rem(80);
+            height: to-rem(80);
+            margin-right: to-rem(20);
+        }
     }
 }
