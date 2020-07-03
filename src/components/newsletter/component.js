@@ -18,8 +18,6 @@ export const Newsletter = props => {
 
         event.preventDefault();
 
-        console.log(body)
-
         api.post('newsletter', body)
             .then(({ data }) => {
                 setName("");

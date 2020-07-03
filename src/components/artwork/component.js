@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Header } from "./../header/component";
 import { Newsletter } from "./../newsletter/component";
@@ -22,13 +23,25 @@ export class Artwork extends Component {
                     url: '',
                     filename: ''
                 }
-            }
+            },
+            filtered: false
         }
     }
 
-    componentDidMount() {
+    hideFilter = () => this.setState({filtered: false})
+    loadData = () => {
         api.get(`artworks/${this.props.match.params.slug}`)
-            .then(({ data }) => this.setState({data: data.data}))
+            .then(({ data }) => this.setState({data: data.data, filtered: data.data.nsfw}))
+    }
+
+    componentDidMount() {
+        this.loadData();
+    }
+
+    componentDidUpdate() {
+        if (this.props.match.params.slug !== this.state.data.slug) {
+            this.loadData();
+        }
     }
 
     render() {
@@ -37,12 +50,21 @@ export class Artwork extends Component {
             <div className={styles.Filter}>
                 <h1>Mature Content</h1>
                 <p>This artwork is for mature audiences only.</p>
-                <button>Show artwork</button>
+                <button onClick={this.hideFilter}>Show artwork</button>
             </div>
         )
 
         return (
             <div className={styles.Artwork}>
+                <Helmet>
+                    <title>Artbymente: Art of Mente - {this.state.data.title}</title>
+                    <meta name="pinterest-rich-pin" content="false" />
+                    <meta name="twitter:site" content="@kreativemente" />
+                    <meta name="twitter:creator" content="@kreativemente" />
+                    <meta name="image" content={this.state.data.image.url} />
+                    <meta property="og:title" content={`${this.state.data.title}: Art of Mente Gee`} />
+                    <meta property="og:image" content={this.state.data.image.url} />
+                </Helmet>
                 <div className={styles.Container}>
                     <div className={styles.InfoPanel}>
                         <div className={styles.Back}><Link to="/"></Link></div>
@@ -53,7 +75,7 @@ export class Artwork extends Component {
                         </aside>
                         <p className={styles.Description}>{this.state.data.description}</p>
                         { prints }
-                        <Share />
+                        <Share title={this.state.data.title} image={this.state.data.image.url} url={window.location.href} />
                         <h1 className={styles.Subtitle}>You may also like...</h1>
                         <div className={styles.Related}>
                             { this.state.data.related.map(image => {
@@ -68,10 +90,11 @@ export class Artwork extends Component {
                         <Newsletter isChild="true" />
                     </div>
                 </div>
-                <div className={styles.Image}>
+                <div className={styles.ImageContainer}>
                     <div className={styles.Back}><Link to="/"></Link></div>
-                    { this.state.data.nsfw ? filter : null }
-                    <img src={this.state.data.image.url} alt={this.state.data.image.filename}/>
+                    { this.state.filtered ? filter : null }
+
+                    <div className={styles.Image} style={{backgroundImage: `url(${this.state.data.image.url})`}}></div>
                 </div>
             </div>
         )
