@@ -94,7 +94,7 @@ export class Artwork extends Component {
                     <div className={styles.Back}><Link to="/"></Link></div>
                     { this.state.filtered ? filter : null }
 
-                    <div className={styles.Image} style={{backgroundImage: `url(${this.state.data.image.url})`}}></div>
+                    <img className={styles.Image} src={this.state.data.image.url} />
                 </div>
             </div>
         )
