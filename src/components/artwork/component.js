@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Header } from "./../header/component";
@@ -31,7 +31,10 @@ export class Artwork extends Component {
     hideFilter = () => this.setState({filtered: false})
     loadData = () => {
         api.get(`artworks/${this.props.match.params.slug}`)
-            .then(({ data }) => this.setState({data: data.data, filtered: data.data.nsfw}))
+            .then(({ data }) => {
+                this.setState({data: data.data, filtered: data.data.nsfw});
+                document.body.scrollTo({top: 0, "behavior": "smooth"});
+            })
     }
 
     componentDidMount() {
