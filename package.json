@@ -36,5 +36,17 @@
     "react-ga": "^3.0.0",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%"
+  ],
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
+  },
+  "postcss": {
+    "modules": "true"
   }
 }

@@ -1,20 +1,71 @@
 import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
-import styles from "./styles";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { Header } from "./components/header/component";
+import { Gallery } from "./components/gallery/component";
+import { Newsletter } from "./components/newsletter/component";
+import { Contact } from "./components/contact/component";
+import { Artwork } from "./components/artwork/component";
+import "./styles";
 
 class App extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-
+            social: [{
+                name: 'Instagram',
+                url: 'https://www.instagram.com/kreativemente/'
+            }, {
+                name: 'Facebook',
+                url: 'https://www.facebook.com/artbymente/'
+            }, {
+                name: 'Twitter',
+                url: 'https://twitter.com/kreativemente'
+            }, {
+                name: 'Email',
+                url: '/contact',
+                internal: true
+            }],
+            nav: [{
+                name: 'Portfolio',
+                url: '/',
+                internal: true
+            }, {
+                name: 'Shop',
+                url: 'https://www.inprnt.com/gallery/kreativemente/'
+            }, {
+                name: 'Contact',
+                url: '/contact',
+                internal: true
+            }]
         }
     }
 
     render() {
         return (
             <Fragment>
-                <h1>Welcome to Art By Mente</h1>
+                <Switch>
+                    <Route exact path={["/", "/contact"]}>
+                        <Header socials={this.state.social} nav={this.state.nav} />
+                    </Route>
+                </Switch>
+                <Switch>
+                    <Route path="/art/:slug" render={(routerProps) => <Artwork socials={this.state.social} {...routerProps} />} />
+                    <Route path="/contact">
+                        <Contact />
+                    </Route>
+                    <Route path="/">
+                        <Gallery />
+                    </Route>
+                </Switch>
+                <Switch>
+                    <Route exact path={["/", "/contact"]}>
+                        <footer className="Footer">
+                            <Newsletter />
+                        </footer>
+                    </Route>
+                </Switch>
             </Fragment>
         )
     }
