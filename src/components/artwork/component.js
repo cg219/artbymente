@@ -33,7 +33,7 @@ export class Artwork extends Component {
         api.get(`artworks/${this.props.match.params.slug}`)
             .then(({ data }) => {
                 this.setState({data: data.data, filtered: data.data.nsfw});
-                document.body.scrollTo({top: 0, "behavior": "smooth"});
+                document.body.scrollTop(0, 0);
             })
     }
 
