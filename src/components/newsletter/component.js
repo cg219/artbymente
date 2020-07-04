@@ -14,7 +14,7 @@ export const Newsletter = props => {
     const updateField = (event, update) => update(event.target.value);
 
     const submitForm = event => {
-        const body = { address };
+        const body = { name, address };
 
         event.preventDefault();
 
