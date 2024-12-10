@@ -20,5 +20,4 @@ jobs:
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           firebaseServiceAccount: "${{ secrets.FIREBASE_TOKEN }}"
-          projectId: ${{ secrets.PROJECT_ID }}
           channel: live
