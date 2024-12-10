@@ -17,8 +17,8 @@ jobs:
         env:
           API_URL: ${{ secrets.API_URL }}
       - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          args: deploy --only hosting
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          firebaseServiceAccount: "${{ secrets.FIREBASE_TOKEN }}"
+          projectId: ${{ secrets.PROJECT_ID }}
+          channel: live
