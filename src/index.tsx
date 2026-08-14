@@ -17,10 +17,10 @@ class App extends Component {
             social: [{
                 name: 'Instagram',
                 url: 'https://www.instagram.com/kreativemente/'
-            }, {
+            }/*, {
                 name: 'Facebook',
                 url: 'https://www.facebook.com/artbymente/'
-            }, {
+            }*/, {
                 name: 'Twitter',
                 url: 'https://twitter.com/kreativemente'
             }/*, {
