@@ -1,12 +1,13 @@
 import React, { Component, Fragment } from "react";
-import ReactDOM from "react-dom";
+import { HelmetProvider } from "react-helmet-async";
+import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import { Header } from "./components/header/component";
-import { Gallery } from "./components/gallery/component";
-import { Newsletter } from "./components/newsletter/component";
-import { Contact } from "./components/contact/component";
-import { Artwork } from "./components/artwork/component";
-import "./styles";
+import { Header } from "./components/header/component.tsx";
+import { Gallery } from "./components/gallery/component.tsx";
+import { Newsletter } from "./components/newsletter/component.tsx";
+import { Contact } from "./components/contact/component.tsx";
+import { Artwork } from "./components/artwork/component.tsx";
+import "./styles.css";
 
 class App extends Component {
     constructor(props) {
@@ -71,9 +72,10 @@ class App extends Component {
     }
 }
 
-ReactDOM.render(
+createRoot(document.getElementById('artbymente')!).render(
     <BrowserRouter>
-        <App />
+        <HelmetProvider>
+            <App />
+        </HelmetProvider>
     </BrowserRouter>,
-    document.getElementById('artbymente')
-);
+)

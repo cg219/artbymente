@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { Helmet } from "react-helmet";
+import { Component } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Header } from "./../header/component";
-import { Newsletter } from "./../newsletter/component";
-import { Share } from "./../share/component";
-import styles from "./styles";
+import { Header } from "./../header/component.tsx";
+import { Newsletter } from "./../newsletter/component.tsx";
+import { Share } from "./../share/component.tsx";
+import styles from "./styles.module.css";
 import axios from "axios";
 
-const api = axios.create({ baseURL: process.env.API_URL });
+const api = axios.create({ baseURL: import.meta.env.VITE_API_URL });
 
 export class Artwork extends Component {
     constructor(props) {
@@ -33,7 +33,8 @@ export class Artwork extends Component {
         api.get(`artworks/${this.props.match.params.slug}`)
             .then(({ data }) => {
                 this.setState({data: data.data, filtered: data.data.nsfw});
-                document.body.scrollTop(0, 0);
+                document.body.scrollTop = 0
+                document.body.scrollLeft = 0
             })
     }
 
@@ -96,8 +97,7 @@ export class Artwork extends Component {
                 <div className={styles.ImageContainer}>
                     <div className={styles.Back}><Link to="/"></Link></div>
                     { this.state.filtered ? filter : null }
-
-                    <img className={styles.Image} src={this.state.data.image.url} />
+                    { this.state.data.image.url.length > 0 ? <img className={styles.Image} src={this.state.data.image.url} /> : null }
                 </div>
             </div>
         )

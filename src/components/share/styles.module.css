@@ -1,0 +1,80 @@
+@import "../../vars.css";
+
+.Share {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.9375rem;
+}
+
+.Like,
+.Facebook,
+.Twitter,
+.Pinterest {
+  box-sizing: border-box;
+  width: 30%;
+  height: 1.5625rem;
+  background-color: red;
+  border-radius: 0.25rem;
+  color: var(--white);
+  font-family: 'Heebo', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
+  font-size: 10px;
+  line-height: 1.5625rem;
+  background-size: 0.875rem 0.875rem;
+  background-repeat: no-repeat;
+  background-position: 0.3125rem 50%;
+  padding-left: 0.875rem;
+  padding-top: 0.125rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+@media all and (max-width: 768px) {
+
+  .Like,
+  .Facebook,
+  .Twitter,
+  .Pinterest {
+    height: 2.5rem;
+    border-radius: 0.25rem;
+    letter-spacing: 0.05rem;
+    font-size: 12px;
+    line-height: 2.5rem;
+    background-size: 1.25rem 1.25rem;
+    padding-left: 1.5625rem;
+  }
+}
+
+@media all and (max-width: 400px) {
+
+  .Like,
+  .Facebook,
+  .Twitter,
+  .Pinterest {
+    font-size: 10px;
+  }
+}
+
+.Like {
+  background-color: var(--white);
+  color: var(--darkgrey);
+  background-image: url('./../../assets/heart.png');
+}
+
+.Facebook {
+  background-color: var(--fbcolor);
+  background-image: url('./../../assets/fb.png');
+}
+
+.Twitter {
+  background-color: var(--twcolor);
+  background-image: url('./../../assets/twitter.png');
+}
+
+.Pinterest {
+  background-color: var(--pincolor);
+  background-image: url('./../../assets/pin.png');
+}

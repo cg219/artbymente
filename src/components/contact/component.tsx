@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "./styles";
-import form from "./../../_form.scss";
+import styles from "./styles.module.css";
+import form from "../../form.module.css";
 import axios from "axios";
 
-const api = axios.create({ baseURL: process.env.API_URL });
+const api = axios.create({ baseURL: import.meta.env.VITE_API_URL });
 
 export const Contact = props => {
     const [name, setName] = useState("");

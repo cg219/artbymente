@@ -1,0 +1,163 @@
+@import "../../vars.css";
+
+.Gallery {
+  list-style-type: none;
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  flex: 1 0 auto;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.GalleryItem {
+  width: 20%;
+  height: 20vw;
+  background-color: var(--darkgrey);
+  position: relative;
+  overflow: hidden;
+}
+
+.GalleryItem a {
+  display: block;
+  height: 101%;
+  width: 101%;
+  position: absolute;
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 3;
+}
+
+.GalleryItem a:before {
+  content: '';
+  background-image: linear-gradient(to top, rgba(0, 0, 0, .9), rgba(0, 0, 0, 0) 50%);
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0;
+  transition: .3s opacity ease-out;
+}
+
+.GalleryItem:hover a:before,
+.GalleryItem:hover .Info {
+  opacity: 1;
+}
+
+@media all and (min-width: 1601px) {
+  .GalleryItem {
+    width: 12.5vw;
+    height: 12.5vw;
+  }
+}
+
+@media all and (max-width: 1280px) {
+  .GalleryItem {
+    width: 25%;
+    height: 25vw;
+  }
+}
+
+@media all and (max-width: 880px) {
+  .GalleryItem {
+    width: 33.3%;
+    height: 33.3vw;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .GalleryItem {
+    width: 50%;
+    height: 50vw;
+  }
+}
+
+.Image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.Info {
+  opacity: 0;
+  transition: .3s opacity ease-out;
+  bottom: 0.625rem;
+  padding: 0 1.25rem;
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.Info p {
+  font-family: 'Dosis', sans-serif;
+  font-weight: 300;
+  font-size: 1.125rem;
+  letter-spacing: 0.0625rem;
+  color: var(--white);
+  margin: 0 0 0.3125rem;
+  line-height: 1;
+}
+
+.Info span {
+  font-family: 'Dosis', sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09375rem;
+  color: var(--white);
+  display: block;
+  margin: 0;
+}
+
+.NSFW .Image {
+  filter: blur(0.625rem);
+}
+
+.NSFW:after {
+  content: 'nsfw Content';
+  font-family: 'Dosis', sans-serif;
+  font-size: 0.75rem;
+  position: absolute;
+  display: block;
+  text-align: center;
+  letter-spacing: 0.09375rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 20vw;
+  width: 100%;
+  height: auto;
+  color: var(--ltgrey);
+  z-index: 2;
+  pointer-events: none;
+}
+
+@media all and (min-width: 1601px) {
+  .NSFW:after {
+    line-height: 12.5vw;
+  }
+}
+
+@media all and (max-width: 1280px) {
+  .NSFW:after {
+    line-height: 25vw;
+  }
+}
+
+@media all and (max-width: 880px) {
+  .NSFW:after {
+    line-height: 33.3vw;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .NSFW:after {
+    line-height: 50vw;
+  }
+}

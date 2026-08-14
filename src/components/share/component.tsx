@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import styles from "./styles";
+import styles from "./styles.module.css";
 
 export const Share = props => {
     const onShare = platform => {

@@ -1,0 +1,352 @@
+@import "../../vars.css";
+
+.Artwork {
+  background-color: #232323;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media all and (max-width: 768px) {
+  .Artwork {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.Container {
+  width: 310px;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  box-sizing: border-box;
+  top: 0;
+}
+
+@media all and (max-width: 768px) {
+  .Container {
+    width: 100%;
+    order: 2;
+    height: auto;
+    position: static;
+  }
+}
+
+.ImageContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--darkgrey);
+  margin-left: 310px;
+  position: relative;
+}
+
+.ImageContainer .Back {
+  display: none;
+}
+
+@media all and (max-width: 768px) {
+  .ImageContainer {
+    margin-left: auto;
+    height: auto;
+    order: 1;
+  }
+
+  .ImageContainer .Back {
+    display: block;
+    position: absolute;
+    top: 0.9375rem;
+    left: 0.9375rem;
+    background-color: var(--darkgrey);
+    z-index: 6;
+  }
+}
+
+.Image {
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media all and (max-width: 768px) {
+  .Image {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.Filter {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--darkgrey);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Filter h1,
+.Filter p,
+.Filter button {
+  font-family: 'Dosis', sans-serif;
+  margin: 0;
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 0.9375rem;
+}
+
+.Filter h1 {
+  font-size: 1.875rem;
+}
+
+.Filter p {
+  font-size: 0.875rem;
+}
+
+.Filter button {
+  font-size: 1rem;
+  background-color: var(--midgrey);
+  outline: none;
+  border: 1px solid rgba(236, 236, 236, .3);
+  border-radius: 0.3125rem;
+  padding: 0.625rem;
+  cursor: pointer;
+}
+
+.InfoPanel {
+  width: 100%;
+  max-height: 100%;
+  padding: 20px 15px 20px;
+  box-sizing: border-box;
+  background-color: var(--midgrey);
+  flex: 1 0 auto;
+  overflow: scroll;
+}
+
+.InfoPanel aside {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Back {
+  background-image: url('./../../assets/back.png');
+  background-size: 0.9375rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  padding: 0.3125rem;
+  border: 1px solid rgba(236, 236, 236, .3);
+  border-radius: 0.625rem;
+  position: relative;
+  margin-bottom: 3.125rem;
+}
+
+.Back a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+}
+
+@media all and (max-width: 768px) {
+  .Back {
+    display: none;
+  }
+
+  .Back a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+  }
+}
+
+.Title {
+  font-family: 'Dosis', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+  color: var(--white);
+  margin: 3.125rem 0 0.3125rem;
+}
+
+.Views {
+  color: var(--green);
+  font-family: 'Heebo', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: .9;
+}
+
+.Views:before {
+  content: '';
+  position: relative;
+  display: inline-block;
+  background-image: url('./../../assets/view.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 0.625rem;
+  height: 0.625rem;
+  margin-right: 0.3125rem;
+}
+
+@media all and (max-width: 768px) {
+  .Views {
+    font-size: 0.875rem;
+  }
+
+  .Views:before {
+    width: 0.9375rem;
+    height: 0.9375rem;
+    margin-right: 0.625rem;
+  }
+}
+
+.Description {
+  font-family: 'Dosis', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--white);
+  margin: 0.9375rem 0 3.125rem;
+}
+
+.Subtitle {
+  font-family: 'Dosis', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+  color: var(--white);
+  font-size: 1.25rem;
+  margin: 2.5rem 0 0.9375rem;
+}
+
+@media all and (max-width: 768px) {
+  .Subtitle {
+    font-size: 1.375rem;
+  }
+}
+
+.Buy {
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+  font-family: 'Heebo', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
+  line-height: 1.5625rem;
+  background-repeat: no-repeat;
+  background-position: 0.3125rem 50%;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  background-color: var(--white);
+  color: var(--darkgrey);
+  background-image: url('./../../assets/buy.png');
+  margin-top: 0.9375rem;
+  position: relative;
+  height: 3.125rem;
+  font-size: 16px;
+  line-height: 3.125rem;
+  background-size: 1.75rem 1.75rem;
+  padding-left: 1.75rem;
+  padding-top: 0.125rem;
+}
+
+.Buy a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.Related {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.RelatedItem {
+  cursor: pointer;
+  width: 90px;
+  height: 90px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.RelatedItem:nth-child(3n) {
+  margin-right: 0;
+}
+
+.RelatedItem a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media all and (max-width: 768px) {
+  .RelatedItem {
+    cursor: pointer;
+    width: 30.4%;
+    height: 29.296875vw;
+    margin-right: 3.645833vw;
+    margin-bottom: 3.645833vw;
+  }
+}
+
+.RelatedImage {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.NSFW .RelatedImage {
+  filter: blur(0.625rem);
+}
+
+.NSFW:after {
+  content: 'nsfw';
+  font-family: 'Dosis', sans-serif;
+  font-size: 0.75rem;
+  position: absolute;
+  display: block;
+  text-align: center;
+  letter-spacing: 0.09375rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 90px;
+  width: 100%;
+  height: auto;
+  color: var(--ltgrey);
+  z-index: 2;
+  pointer-events: none;
+  top: 0;
+}
+
+@media all and (max-width: 768px) {
+  .NSFW:after {
+    font-size: 2.604167vw;
+    letter-spacing: 0.195313vw;
+    line-height: 29.296875vw;
+  }
+}

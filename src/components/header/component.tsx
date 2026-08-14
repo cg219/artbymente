@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Link, NavLink } from "react-router-dom";
-import styles from "./styles";
+import styles from "./styles.module.css";
 
 export const Header = props => {
     const nav = props.nav ? (

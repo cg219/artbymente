@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import styles from "./styles";
+import styles from "./styles.module.css";
 
-const api = axios.create({ baseURL: process.env.API_URL });
+const api = axios.create({ baseURL: import.meta.env.VITE_API_URL });
 
 export class Gallery extends Component {
     constructor(props) {

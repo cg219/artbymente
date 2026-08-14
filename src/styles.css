@@ -1,0 +1,93 @@
+@import "reset.css";
+@import "vars.css";
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 18px;
+  font-family: 'Heebo', sans-serif;
+  position: relative;
+  overflow: scroll;
+  background-color: #232323;
+}
+
+@media all and (min-width: 1601px) {
+
+  html,
+  body {
+    font-size: 20px;
+  }
+}
+
+@media all and (max-width: 1280px) {
+
+  html,
+  body {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 880px) {
+
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 768px) {
+
+  html,
+  body {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 400px) {
+
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 290px) {
+
+  html,
+  body {
+    font-size: 12px;
+  }
+}
+
+h1 {
+  font-size: 1rem;
+  color: #232323;
+}
+
+a {
+  transition: .2s all ease-out;
+}
+
+main {
+  background-color: #232323;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+@media all and (max-width: 768px) {
+  main {
+    height: auto;
+  }
+}
+
+footer {
+  width: 100%;
+  min-height: 100px;
+  background: var(--darkgrey);
+  flex: 1 0 auto;
+  padding: 1.25rem 0;
+}
