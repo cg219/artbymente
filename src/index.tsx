@@ -23,11 +23,11 @@ class App extends Component {
             }, {
                 name: 'Twitter',
                 url: 'https://twitter.com/kreativemente'
-            }, {
+            }/*, {
                 name: 'Email',
                 url: '/contact',
                 internal: true
-            }],
+            }*/],
             nav: [{
                 name: 'Portfolio',
                 url: '/',
@@ -35,11 +35,11 @@ class App extends Component {
             }, {
                 name: 'Shop',
                 url: 'https://www.inprnt.com/gallery/kreativemente/'
-            }, {
+            }, /*{
                 name: 'Contact',
                 url: '/contact',
                 internal: true
-            }]
+            }*/]
         }
     }
 
@@ -60,6 +60,7 @@ class App extends Component {
                         <Gallery />
                     </Route>
                 </Switch>
+                {/*
                 <Switch>
                     <Route exact path={["/", "/contact"]}>
                         <footer className="Footer">
@@ -67,6 +68,7 @@ class App extends Component {
                         </footer>
                     </Route>
                 </Switch>
+                */}
             </Fragment>
         )
     }

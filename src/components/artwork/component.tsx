@@ -91,7 +91,7 @@ export class Artwork extends Component {
                                 )
                             })}
                         </div>
-                        <Newsletter isChild="true" />
+                        {/*<Newsletter isChild="true" />*/}
                     </div>
                 </div>
                 <div className={styles.ImageContainer}>
